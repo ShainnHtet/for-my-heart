@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aye Nyein Moe ❤️</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#080816;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+}
+
+#startScreen{
+position:absolute;
+width:100%;
+height:100%;
+background:#080816;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:10;
+}
+
+h1{
+font-size:3rem;
+color:#ff4fa3;
+text-shadow:0 0 20px #ff4fa3;
+text-align:center;
+}
+
+p{
+margin-top:15px;
+text-align:center;
+max-width:700px;
+line-height:1.8;
+padding:15px;
+}
+
+button{
+margin-top:30px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#ff4fa3;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 20px #ff4fa3;
+}
+
+#main{
+display:none;
+position:relative;
+width:100%;
+height:100%;
+}
+
+img{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:250px;
+height:250px;
+border-radius:50%;
+border:5px solid #ff4fa3;
+box-shadow:0 0 40px #ff4fa3;
+object-fit:cover;
+}
+
+.message{
+position:absolute;
+color:#ff9bcf;
+font-weight:bold;
+animation:float 8s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+}
+
+.heart{
+position:absolute;
+color:#ff4fa3;
+font-size:24px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+from{
+transform:translateY(-100px);
+}
+to{
+transform:translateY(110vh);
+}
+}
+</style>
+</head>
+<body>
+
+<div id="startScreen">
+<h1>❤️ My Love ❤️<br>Aye Nyein Moe</h1>
+<p>
+Every sunrise reminds me of your beautiful smile.
+You are the most precious person in my life.
+Thank you for being a part of my world. 🌹
+</p>
+<button onclick="startLove()">Open My Heart ❤️</button>
+</div>
+
+<div id="main">
+<img src="ayenyeinmoe.jpg" alt="Aye Nyein Moe">
+<div class="message" style="top:10%;left:10%;">I Love You ❤️</div>
+<div class="message" style="top:20%;right:10%;">My Princess 👑</div>
+<div class="message" style="top:40%;left:5%;">You Are My Sunshine ☀️</div>
+<div class="message" style="top:60%;right:5%;">Forever Together ❤️</div>
+<div class="message" style="top:80%;left:15%;">My Happiness 😊</div>
+<div class="message" style="top:75%;right:15%;">Aye Nyein Moe 🌹</div>
+<div class="message" style="top:15%;left:40%;">My Queen 👑</div>
+<div class="message" style="top:85%;left:40%;">Endless Love ❤️</div>
+</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startLove(){
+document.getElementById("startScreen").style.display="none";
+document.getElementById("main").style.display="block";
+
+var music = document.getElementById("music");
+music.play().catch(function(error) {
+    console.log("Audio play blocked by browser: ", error);
+});
+
+setInterval(createHeart,300);
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+heart.style.fontSize=(Math.random()*20+20)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+</script>
+
+</body>
+</html>
